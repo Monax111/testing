@@ -1,0 +1,22 @@
+version: '3.1'
+services:
+  application:
+    image: com.tinkoff.sirius/springjavaproject:0.0.1-snapshot
+    ports:
+      - 8080:8080
+    depends_on:
+      - postgres
+    environment:
+      - spring.datasource.url=jdbc:postgresql://postgres:5432/
+      - spring.datasource.username=${USER}
+      - spring.datasource.password=${PASSWORD}
+    mem_limit: 512m
+  postgres:
+    image: docker-proxy.tcsbank.ru/postgres:11
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_DB=${USER}
+      - POSTGRES_USER=${USER}
+      - POSTGRES_PASSWORD=${PASSWORD}
+    mem_limit: 128m
