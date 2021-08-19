@@ -12,7 +12,7 @@ services:
       - spring.datasource.password=${PASSWORD}
     mem_limit: 512m
   postgres:
-    image: docker-proxy.tcsbank.ru/postgres:11
+    image: postgres:11
     ports:
       - 5432:5432
     environment:
