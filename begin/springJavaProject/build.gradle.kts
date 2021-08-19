@@ -66,5 +66,5 @@ dockerCompose {
 
     projectName = project.name
 
-    isRequiredBy(tasks.test)
+    //isRequiredBy(tasks.test)
 }
